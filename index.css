@@ -1,0 +1,378 @@
+HTML{
+    scroll-behavior: smooth;
+    /* overflow-x: hidden; */
+}
+*,
+*::before,
+::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+.header{
+    width: 100%;
+    height: 110px;
+    
+}
+html {
+	font-size: 14px;
+	font-family: "Inter", sans-serif;
+}
+
+/* Non-navbar specific stuff moved to bottom of file */
+
+.nav {
+	position: relative;
+	width: 100%;
+	display: grid;
+	align-items: center;
+	padding: 1.5rem 2rem;
+
+	/* Individual value for the menu icon, then auto size the rest */
+	grid-template-columns: 60px repeat(2, auto);
+	grid-template-rows: repeat(2, auto);
+
+	/* This is the layout for the navbar in expanded mobile mode */
+	grid-template-areas:
+		"collapser brand"
+		"collapsable collapsable";
+
+	/* border-bottom: 1px solid #0005; */
+    background-color: #0c0c0c;
+    
+}
+
+.nav__collapser {
+	grid-area: collapser;
+	width: 30px;
+   
+    
+}
+
+.nav__brand {
+	font-weight: bold;
+	font-size: 1.2rem;
+	grid-area: brand;
+    color: #fff;
+}
+
+.nav__cta {
+	display: flex;
+	gap: 1rem;
+	margin-top: 1rem;
+}
+
+.nav__collapsable {
+	display: grid;
+	align-items: center;
+	gap: 1rem;
+	width: 100%;
+	grid-area: collapsable;
+    color:#fff;
+
+	/* This is what hides the content */
+	overflow: hidden;
+	max-height: 0;
+
+	transition: padding 500ms ease, max-height 250ms ease;
+}
+.nav--expanded .nav__collapsable {
+	max-height: 500px; /* This is what shows the content */
+	margin-top: 1rem;
+	padding: 2rem 0;
+}
+
+/* Desktop mode styles */
+@media (min-width: 700px) {
+	.nav {
+		/* Layout for nav in desktop mode */
+		grid-template-columns: repeat(4, auto);
+		grid-template-areas: "brand . collapsable collapsable";
+	}
+
+	.nav__collapser {
+		display: none;
+	}
+
+	.nav__collapsable {
+		max-height: 500px;
+		display: flex;
+		justify-content: center;
+	}
+
+	.nav--expanded .nav__collapsable,
+	.nav__cta {
+		padding: 0;
+		margin: 0;
+	}
+
+	.nav__collapsable {
+		display: flex;
+		gap: 2rem;
+	}
+
+	.nav__cta {
+		margin-left: 1.5rem;
+	}
+}
+
+@media (min-width: 1000px) {
+	html {
+		font-size: 1.25rem;
+	}
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.cta {
+	font-size: 1.1rem;
+	border-radius: 2em;
+	padding: 0.5em 1em;
+	border: 1px solid #fff;
+}
+
+.cta--bold {
+	background-color: #1a1919;
+	color: white;
+	font-weight: bold;
+}
+
+
+.firstsection{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 80px 0;
+}
+.firstsection > div{
+    width: 40%;
+}
+.btn{
+    display: inline-block;
+    padding: 15px 40px;
+    border-radius: 30px;
+    background: white;
+    border: 2px solid rgb(215, 53, 53);
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 20px;
+    transition: background 0.5s;
+    
+}
+.btn:hover{
+    background: #ff004f;
+
+}
+
+
+.leftsection{
+    font-size: 2rem;   
+}
+.leftsection p{
+    font-size: 1rem;
+    margin: 10px 0;
+}
+.rightsection img{
+    width: 80%; 
+}
+
+.about{
+    padding: 70px 50px;
+    color: #222220;
+}
+.about-col-2{
+    flex-basis: 50%;
+    
+}
+.sub-title{
+    font-size: 60px;
+    font-weight: 600;
+    color: black;
+    text-align: center;
+    padding: 40px 50px;
+}
+.image{
+    width: 100%;
+    height: 500px;
+    margin: 30px 0;
+    opacity: 0.8;
+} 
+.image:hover {
+    opacity: 1.0;
+  }
+#services{
+    padding: 20px 50px;
+
+}
+.services-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    grid-gap: 40px;
+    margin-top: 50px;
+}
+.services-list div{
+    background: white;
+    border: 1px solid black;
+    padding: 40px;
+    font-size: 13px;
+    font-weight: 300;
+    border-radius: 10px;
+    transition: background 0.5s, transform 0.5s;
+}
+.services-list div h2{
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+.services-list div a{
+    text-decoration: none;
+    color: black;
+    font-size: 12px;
+    margin-top: 20px;
+    border: 1px solid black;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 50px;
+}
+.services-list div:hover{
+    background: #ff004f;
+    transform: translateY(-10px);
+
+}
+#mission{
+    padding: 30px 50px;
+
+}
+.mis-title{
+    text-align: center;
+    font-size: 3rem;
+}
+.mission-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    grid-gap: 40px;
+    margin-top: 50px;
+}
+.mission-list div{
+    background: white;
+    border: 1px solid black;
+    padding: 40px;
+    font-size: 13px;
+    font-weight: 300;
+    border-radius: 10px;
+    transition: background 0.5s, transform 0.5s;
+}
+.mainimg{
+    width: 50%;
+    height: 200px;
+    margin: 30px 0;
+}
+.contact-middle{
+    width: 100%;
+}
+.sub-title{
+    text-align: center;
+    position: relative;
+}
+.contact-middle form{
+    width: 100%;
+    text-align: center;
+    position: relative;
+}
+form input, form textarea{
+    width: 50%;
+    border: 0;
+    outline: none;
+    background: #151414;
+    padding: 15px;
+    margin: 15px 0;
+    color: #fff;
+    font-size: 18px;
+    position: relative;
+    border-radius: 10px;
+    
+}
+
+.btn1{
+    display: block;
+    margin: 50px auto;
+    width: fit-content;
+    border: 1px solid #ff004f;
+    padding: 14px 50px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: background 0.5s;
+    font-size: 1rem;
+    cursor: pointer;
+    background: white;
+    color: black;
+}
+.btn1:hover{
+    background: #ff004f;
+
+}
+#courses{
+    padding: 30px 50px;
+
+}
+.courses-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    grid-gap: 40px;
+    margin-top: 50px;
+}
+.courses-list div{
+    background: white;
+    border: 1px solid black;
+    padding: 40px;
+    font-size: 13px;
+    font-weight: 300;
+    border-radius: 10px;
+    transition: background 0.5s, transform 0.5s;
+}
+.courses-list div h2{
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+.courses-list div a{
+    text-decoration: none;
+    color: rgb(248, 245, 245);
+    font-size: 12px;
+    margin-top: 20px;
+    font-weight: 500;
+    border: 1px solid #ff004f;
+    display: inline-block;
+    background-color: #0f0f0f;
+    padding: 10px;
+    border-radius: 50px;
+}
+.courses-list div:hover{
+    background: #ff004f;
+    transform: translateY(-10px);
+
+}
+#footer{
+    padding: 30px 50px;
+    background-color: #0f0f0f;
+}
+.footer-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    grid-gap: 40px;
+    margin-top: 50px;
+}
+.footer-list div{
+    background: white;
+    border: 1px solid black;
+    padding: 40px;
+    font-size: 13px;
+    font-weight: 300;
+    border-radius: 10px;
+    
+}
